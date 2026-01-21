@@ -10,4 +10,6 @@ scenario = "FoF"
 
 source("loadData.R")
 
-source("plotResults_jd-182.R")
+#source("plotResults_jd-182.R")
+
+source("GrossGrowthEfficiency.R")

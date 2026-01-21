@@ -1,3 +1,13 @@
+# Consider just year and length data (cm)
+lengths <- data.frame(year = lengths$year, length = lengths$length)
+
+# Consider just year and length data (cm)
+predLengthsAgnes <- data.frame(year = predLengthsAgnes$year, length = predLengthsAgnes$Length, jd = predLengthsAgnes$JulianDay, ingestion = predLengthsAgnes$ingested_energy)
+
+
+# Consider just year and length data (cm)
+predLengths <- data.frame(year = predLengths$year, length = predLengths$length, jd = predLengths$jd, ingestion = predLengths$assimilated_energy)
+
 predLengthsAgnes <- predLengthsAgnes[predLengthsAgnes$jd == 182,]
 predLengths <- predLengths[predLengths$jd == 182,]
 
@@ -18,4 +28,4 @@ plt <- ggplot() +
                                   linetype = 2)) +
   scale_x_continuous(breaks = seq(1973, 2016, by = 4))
 
-  ggsave("figures/length_compare_jd-182.png", plot = plt, width = 18, height = 20, unit = "cm")
+  ggsave(paste0("figures/length_compare_jd-182 ", scenario, " constTemp10.png"), plot = plt, width = 18, height = 20, unit = "cm")

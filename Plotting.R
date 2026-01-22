@@ -6,10 +6,16 @@ suppressMessages(library(readr))
 suppressMessages(library(data.table))
 suppressMessages(library(dplyr))
 
+
+
+# clear environment
+rm(list = ls())
+
 scenario = "FoF"
 
 source("loadData.R")
 
-#source("plotResults_jd-182.R")
+source("plotResults_jd-182.R")
 
-source("GrossGrowthEfficiency.R")
+#source("GrossGrowthEfficiency.R")
+#source("weightLengthRelationship.R")

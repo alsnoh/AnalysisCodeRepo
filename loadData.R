@@ -13,10 +13,9 @@
 
 #################### Agnes Pred Length #############################################
     # Retrieve predicted lengths
-    predLengthsAgnes <- fread(paste0("../AgnesCodeRepo/Results/", scenario, ".csv"))
-
+    predsAgnes <- fread(paste0("../AgnesCodeRepo/Results/", scenario, ".csv"))
 
 
 #################### Alex Pred Length #############################################
     # Retrieve predicted lengths
-    predLengths <- fread(paste0("../ForageFishModelRepo/Results/", scenario, ".csv"))
+    predsAlex <- fread(paste0("../ForageFishModelRepo/Results/", scenario, ".csv"))

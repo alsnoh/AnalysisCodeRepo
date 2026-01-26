@@ -1,38 +1,57 @@
 
-years <- unique(predLengthsAgnes$year)
 
-AgnesGGE <- data.frame()
-years_vec <- data.frame()
-x_seq <- data.frame()
+#################### Gross Growth Efficiency Calculation #############################################
 
-for (iyear in years) {
-  weight <- predLengthsAgnes[predLengthsAgnes$year == iyear]
+GGE <- function(preds) {
 
-  end <- nrow(weight)
+  GGE <- c()
+  yearsV <- c()
+  daysV <- c()  
 
-  diff1 <- weight$Weight[2:end] - weight$Weight[1:end-1]
-  diff2 <- weight$ingested_energy[1:end-1]
+  years <- unique(preds$year)
+
+  for (iyear in years) {
+    weight <- preds[preds$year == iyear]
+    jd <- preds$JulianDay[preds$year == iyear]
+
+    end <- nrow(weight)
+
+    diff1 <- weight$Weight[2:end] - weight$Weight[1:end-1]
+    diff2 <- weight$ingested_energy[1:end-1]
 
 
 
-  quotient <- diff1/diff2
+    quotient <- diff1/diff2
 
-  AgnesGGE <- rbind(AgnesGGE, matrix(quotient))
-  years_vec <- rbind(years_vec, matrix(rep(iyear, length(quotient))))
-  x_seq <- rbind(x_seq, matrix(seq(1, length(quotient), 1)))
+    GGE <- c(GGE, quotient)
+    yearsV <- c(yearsV, rep(iyear, length(quotient)))
+    daysV <- c(daysV, jd[1:end-1] )
 
+  }
+
+
+GGE1 <- data.frame(years = matrix(yearsV), GGE = matrix(GGE), day = matrix(daysV))
+names(GGE1)[1] <- "years"
+names(GGE1)[2] <- "GGE"
+names(GGE1)[3] <- "day"
+
+return(GGE1)
 }
 
-AgnesGGE <- data.frame(years = years_vec, GGE = AgnesGGE, day = x_seq)
-names(AgnesGGE)[1] <- "years"
-names(AgnesGGE)[2] <- "GGE"
-names(AgnesGGE)[3] <- "day"
 
+AgnesGGE <- GGE(predsAgnes)
+AlexGGE <- GGE(predsAlex)
 
-plt <- ggplot(data = AgnesGGE, aes(x = day, y = GGE, colour = factor(years))) +
+plt1 <- ggplot(data = AgnesGGE, aes(x = day, y = GGE, colour = factor(years))) +
+  geom_line() +
+  labs(colour = "Year") +
+  theme_minimal()
+
+plt2 <- ggplot(data = AlexGGE, aes(x = day, y = GGE, colour = factor(years))) +
   geom_line() +
   labs(colour = "Year") +
   theme_minimal()
 
   
- ggsave(paste0("figures/AgnesGGE ", scenario, " .png"), plot = plt, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/AgnesGGE ", scenario, " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/AlexGGE ", scenario, " .png"), plot = plt2, width = 18, height = 20, unit = "cm")

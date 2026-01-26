@@ -1,3 +1,5 @@
+#Run analysis scripts from here
+
 suppressMessages(library(ggplot2))
 suppressMessages(library(ggpubr))
 suppressMessages(library(lubridate))
@@ -11,11 +13,13 @@ suppressMessages(library(dplyr))
 # clear environment
 rm(list = ls())
 
-scenario = "FoF"
+scenario = "ECG"
 
 source("loadData.R")
 
-source("plotResults_jd-182.R")
+# plot lengths at specific julian day, FoF is 182, rest are 212 (overwintering)
+#source("plotLengths_jd.R")
+#plotLengths_jd(212)
 
-#source("GrossGrowthEfficiency.R")
+source("GrossGrowthEfficiency.R")
 #source("weightLengthRelationship.R")

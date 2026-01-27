@@ -6,7 +6,8 @@ GGE <- function(preds) {
 
   GGE <- c()
   yearsV <- c()
-  daysV <- c()  
+  daysV <- c()
+  ingestedEnergy <- c()  
 
   years <- unique(preds$year)
 
@@ -26,14 +27,16 @@ GGE <- function(preds) {
     GGE <- c(GGE, quotient)
     yearsV <- c(yearsV, rep(iyear, length(quotient)))
     daysV <- c(daysV, jd[1:end-1] )
+    ingestedEnergy <- c(ingestedEnergy, diff2)
 
   }
 
 
-GGE1 <- data.frame(years = matrix(yearsV), GGE = matrix(GGE), day = matrix(daysV))
+GGE1 <- data.frame(years = matrix(yearsV), GGE = matrix(GGE), day = matrix(daysV), ingestedEnergy = matrix(ingestedEnergy))
 names(GGE1)[1] <- "years"
 names(GGE1)[2] <- "GGE"
 names(GGE1)[3] <- "day"
+names(GGE1)[4] <- "ingestedEnergy"
 
 return(GGE1)
 }
@@ -54,4 +57,4 @@ plt2 <- ggplot(data = AlexGGE, aes(x = day, y = GGE, colour = factor(years))) +
 
   
 ggsave(paste0("figures/AgnesGGE ", scenario, " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/AlexGGE ", scenario, " .png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/AlexGGE ", scenario, " test.png"), plot = plt2, width = 18, height = 20, unit = "cm")

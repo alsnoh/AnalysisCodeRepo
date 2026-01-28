@@ -53,6 +53,8 @@ plt1 <- ggplot(data = AgnesGGE, aes(x = day, y = GGE, colour = factor(years))) +
 plt2 <- ggplot(data = AlexGGE, aes(x = day, y = GGE, colour = factor(years))) +
   geom_line() +
   labs(colour = "Year") +
+  scale_y_continuous(breaks = seq(0, 1, by = 0.1)) +
+  coord_cartesian(ylim = c(0, 1)) +
   theme_minimal()
 
   

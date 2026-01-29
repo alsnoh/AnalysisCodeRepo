@@ -4,8 +4,8 @@ plotLengths_jd <- function(jd) {
   lengths <- data.frame(year = lengths$year, length = lengths$length)
 
   # Consider just year and length data (cm)
-  lengthsAgnes <- data.frame(year = predsAgnes$year, length = predsAgnes$Length, jd = predsAgnes$JulianDay, ingestion = predsAgnes$ingested_energy)
-  lengthsAlex <- data.frame(year = predsAlex$year, length = predsAlex$Length, jd = predsAlex$JulianDay, ingestion = predsAlex$assimilated_energy)
+  lengthsAgnes <- data.frame(year = predsAgnes$year, length = predsAgnes$Length, jd = predsAgnes$JulianDay, ingestion = predsAgnes$assimilated_weight)
+  lengthsAlex <- data.frame(year = predsAlex$year, length = predsAlex$Length, jd = predsAlex$JulianDay, ingestion = predsAlex$assimilated_weight)
 
   # Predicted lengths at jd-182 (1 July)
   lengthsAgnes <- lengthsAgnes[lengthsAgnes$jd == jd,]

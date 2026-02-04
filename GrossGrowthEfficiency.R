@@ -7,7 +7,7 @@ GGE <- function(preds) {
   GGE <- c()
   yearsV <- c()
   daysV <- c()
-  assimilatedWeight <- c()  
+  ingestedWeight <- c()  
 
   years <- unique(preds$year)
 
@@ -18,7 +18,7 @@ GGE <- function(preds) {
     end <- nrow(weight)
 
     diff1 <- weight$Weight[2:end] - weight$Weight[1:end-1]
-    diff2 <- weight$assimilated_weight[1:end-1]
+    diff2 <- weight$ingested_weight[1:end-1]
 
 
 
@@ -27,16 +27,16 @@ GGE <- function(preds) {
     GGE <- c(GGE, quotient)
     yearsV <- c(yearsV, rep(iyear, length(quotient)))
     daysV <- c(daysV, jd[1:end-1] )
-    assimilatedWeight <- c(assimilatedWeight, diff2)
+    ingestedWeight <- c(ingestedWeight, diff2)
 
   }
 
 
-GGE1 <- data.frame(years = matrix(yearsV), GGE = matrix(GGE), day = matrix(daysV), assimilatedWeight = matrix(assimilatedWeight))
+GGE1 <- data.frame(years = matrix(yearsV), GGE = matrix(GGE), day = matrix(daysV), ingestedWeight = matrix(ingestedWeight))
 names(GGE1)[1] <- "years"
 names(GGE1)[2] <- "GGE"
 names(GGE1)[3] <- "day"
-names(GGE1)[4] <- "assimilatedWeight"
+names(GGE1)[4] <- "ingestedWeight"
 return(GGE1)
 }
 

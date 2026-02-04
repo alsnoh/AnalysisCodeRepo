@@ -18,8 +18,9 @@ scenario = "FoF"
 source("loadData.R")
 
 # plot lengths at specific julian day, FoF is 182, rest are 212 (overwintering)
-source("plotLengths_jd.R")
-plotLengths_jd(182)
+#source("plotLengths_jd.R")
+#plotLengths_jd(182)
 
 source("GrossGrowthEfficiency.R")
 #source("weightLengthRelationship.R")
+source("weightAssimRelationship.R")

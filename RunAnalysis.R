@@ -21,6 +21,6 @@ source("loadData.R")
 #source("plotLengths_jd.R")
 #plotLengths_jd(182)
 
-source("GrossGrowthEfficiency.R")
+#source("GrossGrowthEfficiency.R")
 #source("weightLengthRelationship.R")
 source("weightAssimRelationship.R")

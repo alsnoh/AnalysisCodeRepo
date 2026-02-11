@@ -57,5 +57,5 @@ plt2 <- ggplot(data = AlexGGE, aes(x = day, y = GGE, colour = factor(years))) +
   theme_minimal()
 
   
-ggsave(paste0("figures/AgnesGGE ", scenario, " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/AlexGGE ", scenario, " test.png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/GGE/Agnes ", scenario, " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/GGE/Alex ", scenario, " .png"), plot = plt2, width = 18, height = 20, unit = "cm")

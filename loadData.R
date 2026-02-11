@@ -19,3 +19,7 @@
 #################### Alex Pred Length #############################################
     # Retrieve predicted lengths
     predsAlex <- fread(paste0("../ForageFishModelRepo/Results/", scenario, ".csv"))
+
+#################### test #############################################
+    # Retrieve predicted lengths
+    predsTest <- fread(paste0("../ForageFishModelRepo/Results/", scenario, "_test.csv"))

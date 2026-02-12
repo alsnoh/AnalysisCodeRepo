@@ -13,7 +13,8 @@ ggsave(paste0("figures/weight_v_assim Alex const_all ", scenario, " .png"), plot
 
 plt2 <- ggplot(data = DFTest, aes(x = weights, y = assims*0.2)) +
   geom_line() +
-  theme_minimal() #+
+  theme_minimal() +
+  labs(x = "Weight (g)", y = "dW/dt (g/day)") #+
  # geom_function(fun = function(x) 0.3*x^(0.3)-0.1*x, linetype = "dashed") 
   
 

@@ -23,4 +23,5 @@ source("loadData.R")
 
 #source("GrossGrowthEfficiency.R")
 #source("weightLengthRelationship.R")
-source("weightAssimRelationship.R")
+#source("weightAssimRelationship.R")
+source("yearlyWeight.R")

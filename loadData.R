@@ -22,4 +22,4 @@
 
 #################### test #############################################
     # Retrieve predicted lengths
-    predsTest <- fread(paste0("../ForageFishModelRepo/Results/", scenario, "_test.csv"))
+    # predsTest <- fread(paste0("../ForageFishModelRepo/Results/", scenario, "_test.csv"))

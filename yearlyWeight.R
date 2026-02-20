@@ -24,7 +24,8 @@ plt2 <- ggplot(data = DFLength, aes(x = jd, y = lengths, colour = factor(year)))
   labs(x = "Julian Day", y = "Length (cm)", title = paste0("Length ", DFLength$year," in ", scenario), colour = "Year") + 
   scale_x_continuous(breaks = seq(1,365, by = 30)) +
   scale_y_continuous(breaks = seq(0, 10, by = 1))
+
  
 
-ggsave(paste0("figures/YearlyWeight/jd 141-212 const_all ", scenario, " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/yearlyLength/jd 141-212 const_all ", scenario, " .png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/YearlyWeight/jd 1-365 const_all ", scenario, " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/yearlyLength/jd 1-365 const_all ", scenario, " .png"), plot = plt2, width = 18, height = 20, unit = "cm")

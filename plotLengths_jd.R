@@ -28,7 +28,7 @@ plotLengths_jd <- function(jd) {
                                     linetype = 2)) +
     scale_x_continuous(breaks = seq(1973, 2016, by = 4))
 
-    ggsave(paste0("figures/length_compare/jd ",jd, " ", scenario, " max2.png"), plot = plt, width = 18, height = 20, unit = "cm")
+    ggsave(paste0("figures/length_compare/jd ",jd, " ", scenario, ".png"), plot = plt, width = 18, height = 20, unit = "cm")
 
 }
 

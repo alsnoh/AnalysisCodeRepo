@@ -1,5 +1,6 @@
 z0 <- 5
 I0 <- c(5, 5, 5, 10, 10, 10, 50, 100, 150, 250,250,250,250,250,250,250,150,100,50,10,10,10,5,5)
+IConst <- rep(250, length(I0))
 a_d <- 0.1
 a <- 10 
 b <- 100
@@ -60,11 +61,12 @@ z <- z0
 days <- 3
 zs <- numeric(length(I0*days))
 
+preyIA <- c(5,5,5,5,4,4,3,3,3,2,2,1,1,1,1,1,2,2,3,3,4,5,5,5)/1000000
 for(iday in 1:days) {
     for(ihour in 1:24) {
         
-        D <- getr(a_d, 1/1000000, E, I0[ihour], kR, 0.001)
-        z <- a*I0[ihour]*exp(-a_d*z) / (v * LENGTH^2) - b*D^2*pi*v*LENGTH + z
+        D <- getr(a_d, preyIA[ihour], E, IConst[ihour], kR, 0.001)
+        z <- a*IConst[ihour]*exp(-a_d*z) / (v * LENGTH^2) - b*D^2*pi*v*LENGTH + z
         if (z < 0) {
             z <- 0
         }

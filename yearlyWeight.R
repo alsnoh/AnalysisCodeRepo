@@ -32,4 +32,4 @@ plt2 <- ggplot(data = DFLength, aes(x = jd, y = lengths, colour = factor(year)))
  
 
 ggsave(paste0("figures/YearlyWeight/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " const_all ", scenario," ", DFWeight$year[1], " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/yearlyLength/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " const_all ", scenario," ", DFWeight$year[1], " .png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/yearlyLength/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], scenario," ", DFWeight$year[1], " filterTest.png"), plot = plt2, width = 18, height = 20, unit = "cm")

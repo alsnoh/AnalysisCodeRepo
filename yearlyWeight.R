@@ -1,14 +1,15 @@
 DFWeight <- data.frame(weights = matrix(predsAlex$Weight), jd = matrix(predsAlex$JulianDay), year = matrix(predsAlex$year))
 DFLength <- data.frame(lengths = matrix(predsAlex$Length), jd = matrix(predsAlex$JulianDay), year = matrix(predsAlex$year))
 
+#x <- length(DFLength$lengths)
 # set parameters for von bertalanffy 
 A <- 0.027 
 n <- 3/4
 W0 <- 0.14
 JD1 <- 0
 c <- (W0)^(1-n) / (1-n)  - JD1*A
-Lmax <- 18
-k <- 0.36/365
+Lmax <- 20
+k <- 0.4/365
 
 
 plt1 <- ggplot(data = DFWeight, aes(x = jd, y = weights, colour = factor(year))) +
@@ -21,15 +22,15 @@ plt1 <- ggplot(data = DFWeight, aes(x = jd, y = weights, colour = factor(year)))
   scale_x_continuous(breaks = seq(1,365, by = 30)) +
   scale_y_continuous(breaks = seq(0, 5.5, by = 0.5))
 
-plt2 <- ggplot(data = DFLength, aes(x = jd, y = lengths, colour = factor(year))) +
+plt2 <- ggplot(data = DFLength, aes(x = 1:length(DFLength$lengths), y = lengths)) +
   geom_line() +
   theme_minimal() +
   labs(x = "Julian Day", y = "Length (cm)", title = paste0("Length ", DFLength$year," in ", scenario), colour = "Year") +   # solution to dL/dt = k(Lmax - L)
-  geom_function(fun = function(x) Lmax + (4-Lmax)*exp(-k*(x-141)), linetype = "dashed") +
-  scale_x_continuous(breaks = seq(1,365, by = 30)) +
-  scale_y_continuous(breaks = seq(0, 10, by = 1))
+  geom_function(fun = function(x) Lmax + (4-Lmax)*exp(-k*(x-1)), linetype = "dashed") +
+  scale_x_continuous(breaks = seq(1,365*5, by = 30*5)) +
+  scale_y_continuous(breaks = seq(1, 30, by = 5))
 
  
 
 ggsave(paste0("figures/YearlyWeight/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " const_all ", scenario," ", DFWeight$year[1], " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/yearlyLength/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], scenario," ", DFWeight$year[1], " filterTest.png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/yearlyLength/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " ", scenario," ", DFWeight$year[1], " handlingTest 5 years.png"), plot = plt2, width = 18, height = 20, unit = "cm")

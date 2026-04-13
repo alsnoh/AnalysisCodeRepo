@@ -28,9 +28,9 @@ plt2 <- ggplot(data = DFLength, aes(x = 1:length(DFLength$lengths), y = lengths)
   labs(x = "Julian Day", y = "Length (cm)", title = paste0("Length ", DFLength$year," in ", scenario), colour = "Year") +   # solution to dL/dt = k(Lmax - L)
   geom_function(fun = function(x) Lmax + (4-Lmax)*exp(-k*(x-1)), linetype = "dashed") +
   scale_x_continuous(breaks = seq(1,365*5, by = 30*5)) +
-  scale_y_continuous(breaks = seq(1, 30, by = 5))
+  scale_y_continuous(breaks = seq(1, 30, by = 1))
 
  
 
 ggsave(paste0("figures/YearlyWeight/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " const_all ", scenario," ", DFWeight$year[1], " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/yearlyLength/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " ", scenario," ", DFWeight$year[1], " handlingTest 5 years.png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/yearlyLength/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " ", scenario," ", DFWeight$year[1], " handlingTest 5 years const test.png"), plot = plt2, width = 18, height = 20, unit = "cm")

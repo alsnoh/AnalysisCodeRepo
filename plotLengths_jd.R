@@ -14,10 +14,22 @@ plotLengths_jd <- function(jd) {
   lengthsAgnes <- lengthsAgnes[lengthsAgnes$jd == jd,]
   lengthsAlex <- lengthsAlex[lengthsAlex$jd == jd,]
 
-  lm <- lm(length ~ year, data = lengthsAlex)
-  lm1 <- lm(length ~ year, data = lengths)
+  if (min(lengthsAlex$year) < min(lengths$year)) {
+    from <- min(lengths$year)
+  } else {
+    from <- min(lengthsAlex$year)
+  }
+  if (max(lengthsAlex$year) > max(lengths$year)) {
+    to <- max(lengths$year)
+  } else {
+    to <- max(lengthsAlex$year)
+  }
+
+  lm <- lm(length ~ year, data = lengthsAlex[lengthsAlex$year >= from & lengthsAlex$year <= to, ])
+  lm1 <- lm(length ~ year, data = lengths[lengths$year >= from & lengths$year <= to, ])
 
     plt <- ggplot() +
+    ggtitle(scenario) +
     #geom_point(data = lengthsAgnes, aes(x = year, y = length), colour = "goldenrod2") +
     #geom_line(data = lengthsAgnes, aes(x = year, y = length), colour = "goldenrod2") +
     geom_point(data = lengths, aes(x = year, y = length), colour = colours[which(scenarios == scenario)], shape = 1, size = 4) +
@@ -28,7 +40,8 @@ plotLengths_jd <- function(jd) {
     geom_abline(intercept = lm1$coefficients[1], slope = lm1$coefficients[2], colour = colours[which(scenarios == scenario)], linetype = "dashed", linewidth = 1) +
     labs(x = "year", y = " length (cm)") +
     theme_classic(base_size = 15) +
-    theme(legend.position = "bottom",
+    theme(text = element_text(size = 30),
+                  legend.position = "bottom",
           legend.margin = margin(c(1,1,1,1)))+#, + panel.grid = element_line(color = "#8ccde3", size = 0.75,linetype = 2))   
     scale_x_continuous(breaks = seq(1973, 2017, by = 4))
 

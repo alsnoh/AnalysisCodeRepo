@@ -20,13 +20,14 @@ labels <- c(
   expression(italic("h")), expression(italic("v")),
   expression(italic("v"["f"])), expression(italic("C")),
   expression(italic("D"["frac"])), expression(italic("K"["D"])), expression(italic("z")),
-  expression(italic("b")), expression(italic("m")), expression(italic(Ag["frac"])),
-  expression(italic(f["frac"])),
+  expression(italic("b")), expression(italic("m")), expression(italic(alpha["Ag"])),
+  expression(italic(beta["Ag"])),
+  expression(italic(f["frac"])), expression(italic("Q"[10])),
   expression(italic(alpha["met"])), expression(italic(beta["met"])),
-  expression(italic("Q"[10])), expression(italic("ED"))
+  expression(italic("ED"))
 )
 
-nom_values <- c(1.37749843075797, -0.0472757046987104, 0.042658187973877)
+nom_values <- c(1.39163831506278, -0.0465860135862671, 0.0691805484553914)
 
 names <- c("ratio", "FoF_trend", "Shetland_trend")
 

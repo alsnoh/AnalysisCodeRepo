@@ -16,7 +16,7 @@ plt <- ggplot() +
   scale_x_continuous(breaks = seq(1,100, by = 5)) +
   scale_y_continuous(breaks = seq(0, 5, by = 0.1))
 
-ggsave(paste0("figures/assim_v_meta/Exp8.png"), plot = plt, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/assim_v_meta/Exp16.png"), plot = plt, width = 18, height = 20, unit = "cm")
 
 ######################################### for filter feeding with constant conditions ########################
 #geom_function(fun = function(x) 1.5*0.0045*(0.0028^0.65)*3.1^(9.64/10)*x^(1.95)*exp(0.02*0.8*x), linetype = "dashed") +

@@ -1,7 +1,7 @@
 
 
 #grid.arrange(grobs = plts, ncol = 2, top = textGrob("Daily QC: Blue",gp=gpar(fontsize=20,font=3)))
-ggsave(file = "figures/multiPlotTest3.png", arrangeGrob(grobs = plts, 
+ggsave(file = "figures/multiPlotTest4.png", arrangeGrob(grobs = plts, 
                                                     ncol = 2,
                                                   widths = c(1,1),
                                                  heights = c(1,1), 

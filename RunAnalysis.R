@@ -20,6 +20,7 @@ rm(list = ls())
 # pick location "FoF", "DB", "Shetland", "ECG"
 scenarios <- c("FoF", "DB", "Shetland", "ECG")
 scenario <- scenarios[1]
+fish <- "sandeel"
 jds <- c(182, 212, 182, 212)
 # source("plotLengths_jd.R")
 # plts <- list()

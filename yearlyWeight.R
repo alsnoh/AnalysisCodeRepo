@@ -8,8 +8,8 @@ DFLength <- data.frame(lengths = matrix(predsAlex$Length), jd = matrix(predsAlex
 #W0 <- 0.14
 JD1 <- 0
 #c <- (W0)^(1-n) / (1-n)  - JD1*A
-Lmax <- 20
-k <- 0.8/365
+Lmax <- 30
+k <- 0.4/365
 
 
 # plt1 <- ggplot(data = DFWeight, aes(x = jd, y = weights, colour = factor(year))) +
@@ -33,4 +33,4 @@ plt2 <- ggplot(data = DFLength, aes(x = 1:length(DFLength$lengths), y = lengths)
  
 
 #ggsave(paste0("figures/YearlyWeight/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " const_all ", scenario," ", DFWeight$year[1], " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/yearlyLength/jd ", DFLength$jd[1], "-", DFLength$jd[nrow(DFLength)], " ", scenario," ", DFLength$year[1], " Exp16.png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/yearlyLength/effectAsymptote/jd ", DFLength$jd[1], "-", DFLength$jd[nrow(DFLength)], " ", scenario," ", DFLength$year[1], " 2xEps.png"), plot = plt2, width = 18, height = 20, unit = "cm")

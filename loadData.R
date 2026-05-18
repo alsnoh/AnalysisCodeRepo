@@ -1,6 +1,6 @@
  #################### obs length #############################################
     # Set up length data as data frame
-    lengths <- fread(paste0("lengthData/length_", scenario, ".csv"))
+    lengths <- fread(paste0("lengthData/", fish, "/length_", scenario, ".csv"))
 
     if (lengths$length[1] > 30)
         lengths$length <- lengths$length / 10

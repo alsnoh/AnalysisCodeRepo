@@ -1,10 +1,10 @@
 # Run Agnes' model and copy results into this directory
 
 # Select which parameters to change (refer to rows in CONSTANTS.csv and then -1)
-pars <- c(1:29)
+pars <- c(1,17)
 
 # set multiples of 10% change (set n <- c(1,2) if testing min and max value)
-n <- c(1,2)
+n <- c(-5,-4,-3,-2,-1,1,2,3,4,5)
 
 # Create data frames for metrics
 FoF_trend <- data.frame()
@@ -12,14 +12,14 @@ ECG_FoF_ratios <- data.frame()
 Shetland_trend <- data.frame()
 
 # Define directories laptop
-model_dir <- "C:/Users/Alex/OneDrive - University of Strathclyde/Code/PhD/ForageFishModelRepo/"
-results_copy_dir <- "C:/Users/Alex/OneDrive - University of Strathclyde/Code/PhD/Learning stats/AgnesModelResults/"
-analysis_dir <- "C:/Users/Alex/OneDrive - University of Strathclyde/Code/PhD/Learning stats/"
+# model_dir <- "C:/Users/Alex/OneDrive - University of Strathclyde/Code/PhD/ForageFishModelRepo/"
+# results_copy_dir <- "C:/Users/Alex/OneDrive - University of Strathclyde/Code/PhD/Learning stats/AgnesModelResults/"
+# analysis_dir <- "C:/Users/Alex/OneDrive - University of Strathclyde/Code/PhD/Learning stats/"
 
 # Define relative directories PC
-#model_dir <- "C:/Users/cgb25176/OneDrive - University of Strathclyde/Code/sandeel_model/sandeel_model"
-#results_copy_dir <- "C:/Users/cgb25176/OneDrive - University of Strathclyde/Code/PhD/Learning stats/AgnesModelResults/"
-#analysis_dir <- "C:/Users/cgb25176/OneDrive - University of Strathclyde/Code/PhD/Learning stats/"
+model_dir <- "C:/Users/cgb25176/OneDrive - University of Strathclyde/Code/sandeel_model/sandeel_model"
+results_copy_dir <- "C:/Users/cgb25176/OneDrive - University of Strathclyde/Code/PhD/Learning stats/AgnesModelResults/"
+analysis_dir <- "C:/Users/cgb25176/OneDrive - University of Strathclyde/Code/PhD/Learning stats/"
 
 
 # Read in constants once
@@ -89,6 +89,6 @@ for (par in pars) {
 # Return to analysis dir at the end
 setwd(analysis_dir)
 
-write.csv(FoF_trend, "Results/FoF_trend_MinMax.csv", row.names = FALSE)
-write.csv(ECG_FoF_ratios, "Results/ECG_FoF_ratios_MinMax.csv", row.names = FALSE)
-write.csv(Shetland_trend, "Results/Shetland_trend_MinMax.csv", row.names = FALSE)
+# write.csv(FoF_trend, "Results/FoF_trend_MinMax.csv", row.names = FALSE)
+# write.csv(ECG_FoF_ratios, "Results/ECG_FoF_ratios_MinMax.csv", row.names = FALSE)
+# write.csv(Shetland_trend, "Results/Shetland_trend_MinMax.csv", row.names = FALSE)

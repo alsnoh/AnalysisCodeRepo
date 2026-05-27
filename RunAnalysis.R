@@ -22,24 +22,24 @@ scenarios <- c("FoF", "DB", "Shetland", "ECG")
 scenario <- scenarios[1]
 fish <- "sandeel"
 jds <- c(182, 212, 182, 212)
-# source("plotLengths_jd.R")
-# plts <- list()
-# for (scenario in scenarios) 
-# {
+source("plotLengths_jd.R")
+plts <- list()
+for (scenario in scenarios) 
+{
 
-#     source("loadData.R")
-#     plt <- plotLengths_jd(jds[which(scenarios == scenario)])
-#     l1 <- list(plt)
-#     plts <- c(l1, plts)
-# }
+    source("loadData.R")
+    plt <- plotLengths_jd(jds[which(scenarios == scenario)])
+    l1 <- list(plt)
+    plts <- c(l1, plts)
+}
 
 
 # plot lengths at specific julian day, FoF is 182, rest are 212 (overwintering)
 
-source("loadData.R")
-source("yearlyWeight.R")
-source("assim_v_meta.R")
+# source("loadData.R")
+# source("yearlyWeight.R")
+# source("assim_v_meta.R")
 #source("GrossGrowthEfficiency.R")
 #source("weightLengthRelationship.R")
 #source("weightAssimRelationship.R")
-#source("saveFigures.R")
+source("saveFigures.R")

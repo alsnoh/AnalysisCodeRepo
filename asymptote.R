@@ -8,12 +8,17 @@ p <- ggplot() +
     geom_point(data = asymData, aes(x = assim, y = asymLength)) +
     labs(x = "assimilation efficiency", y = "asymptotic length") +
     theme_classic() +
+    scale_x_continuous(breaks = seq(0, 1.25, by = 0.05)) +
+    scale_y_continuous(breaks = seq(0, 40, by = 2)) +
     theme(
       panel.grid.major.x = element_line(color = "#000000",
                                 linewidth = 0.1,
                                 linetype = 2),
       legend.position = "bottom",
-      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)
+      axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+      panel.grid.major.y = element_line(color = "#000000",
+                                linewidth = 0.1,
+                                linetype = 2)
     )
 
 file_name <- paste0("figures/asymInvestigation/ChangingA1.png")

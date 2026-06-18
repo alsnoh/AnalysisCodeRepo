@@ -38,4 +38,4 @@ plt2 <- ggplot(data = DFLength, aes(x = 1:length(DFLength$lengths), y = lengths)
  
 
 #ggsave(paste0("figures/YearlyWeight/jd ", DFWeight$jd[1], "-", DFWeight$jd[nrow(DFWeight)], " const_all ", scenario," ", DFWeight$year[1], " .png"), plot = plt1, width = 18, height = 20, unit = "cm")
-ggsave(paste0("figures/yearlyLength/effectAsymptote/jd ", DFLength$jd[1], "-", DFLength$jd[nrow(DFLength)], " ", scenario," ", " k_1.7_W0_6_A1_1.9.png"), plot = plt2, width = 18, height = 20, unit = "cm")
+ggsave(paste0("figures/yearlyLength/effectAsymptote/jd ", DFLength$jd[1], "-", DFLength$jd[nrow(DFLength)], " ", scenario," ", " k_1.7_W0_6_A1_1.8_NS.png"), plot = plt2, width = 18, height = 20, unit = "cm")
